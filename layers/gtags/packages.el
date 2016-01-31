@@ -17,7 +17,10 @@
 
 (defun gtags/init-ggtags ()
   (use-package ggtags
-    :defer t))
+    :defer t
+    :init
+    (progn
+      (add-hook 'helm-gtags-mode-hook 'ggtags-mode))))
 
 (when (configuration-layer/layer-usedp 'spacemacs-helm)
   (defun gtags/init-helm-gtags ()
